@@ -88,8 +88,8 @@ add_to_r1_program = [
 multiply_program = [
     0x80,  # MOV R0, #0
     0x90,  # MOV R1, #0
-    0x8D,  # MOV R0, #6
-    0x98,  # MOV R1, #3
+    0x8D,  # MOV R0, #13
+    0x98,  # MOV R1, #8
     0x40,  # MUL R0, R1
     0xEE,  # STR R0, [14]
     0xFF,  # STR R1, [15]

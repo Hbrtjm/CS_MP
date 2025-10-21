@@ -41,8 +41,7 @@ class Cpu:
       elif self.__opcode_h == 0x3:  # Adding R0 to R1
         self.r1 = self.r1 + self.r0
       elif self.__opcode_h == 0x4:  # Multiply R1 * R0, store result in R1 (high) and R0 (low)
-        self.r1 = (self.r0 * self.r1 >> 4) & 0x0F  # More significant byte to R1
-        self.r0 = self.r0 * self.r1 & 0x0F  # Less significant byte to R0
+        self.r1, self.r0 = (self.r0 * self.r1 >> 4) & 0x0F,self.r0 * self.r1 & 0x0F  # More significant byte to R1
       elif self.__opcode_h == 0x8:
         self.r0 = self.__opcode_l
       elif self.__opcode_h == 0x9:
