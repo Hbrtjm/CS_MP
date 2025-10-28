@@ -102,7 +102,13 @@ begin
 
 					3'b011:						//jesli bity 6:4 maja wartosc 011 (3)...
 					begin
-						r1 <= r0 + r1; 			// wykonujemy dodawanie: add r1, r0 (r1 = r1 + r0) 
+						r1 <= r1 + r0; 			// wykonujemy dodawanie: add r1, r0 (r1 = r1 + r0) 
+					end
+
+					3'b100:
+					begin 
+						r1 <= r0 * r1 / 16;
+						r0 <= r0 * r1 % 16;
 					end
 				endcase
 			end
