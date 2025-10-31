@@ -99,6 +99,18 @@ begin
 					begin
 						r0 <= r0 + r1;			//wykonujemy dodawanie: add r0, r1 (r0 = r0 + r1)
 					end
+
+					3'b011:						//jesli bity 6:4 maja wartosc 011...
+					begin
+						r0 <= r0 + r1;			//wykonujemy dodawanie: add r1, r0 (r1 = r1 + r0)
+					end
+
+					3'b100:						//jesli bity 6:4 maja wartosc 100...
+					begin
+						r0 <= r0 * r1 / 16;     // Wykonujemy mnożenie i zapisujemy starsze bity do r9
+						r1 <= r0 * r1 % 16;     // Wykonujemy mnożenie i zapisujemy młodsze bity do r1
+					end
+
 				endcase
 			end
 			else									//gdy bit 7 != 0, to kod operacji stanowi instrukcje load, store lub move
